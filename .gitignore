@@ -1,0 +1,47 @@
+# ================================
+# IA Image Detection - .gitignore
+# ================================
+
+# ---- General ----
+__pycache__/
+*.pyc
+*.pyo
+*.tmp
+*.log
+.DS_Store
+
+# ---- Entornos y librerías ----
+.venv/
+env/
+venv/
+*.egg-info/
+
+# ---- Datos ----
+# Ignorar todo el contenido de data/raw excepto .gitkeep
+data/raw/**/*
+
+# Mantener estructura vacía
+!data/raw/**/.gitkeep
+
+# Ignorar contenido de processed, samples
+data/processed/**
+!data/processed/**/.gitkeep
+
+data/samples/**
+!data/samples/**/.gitkeep
+
+# ---- Modelos ----
+models/checkpoints/**
+!models/checkpoints/**/.gitkeep
+
+models/saved_models/**
+!models/saved_models/**/.gitkeep
+
+# ---- Resultados ----
+results/**
+!results/**/.gitkeep
+
+# ---- Colab / Temp ----
+*.ipynb_checkpoints/
+tmp/
+output/
