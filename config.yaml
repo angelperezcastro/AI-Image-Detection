@@ -1,0 +1,43 @@
+# ==============================
+# IA Image Detection - Config
+# ==============================
+
+# --- Datos ---
+data:
+  root_dir: data/raw/ADM
+  processed_dir: data/processed
+  samples_dir: data/samples
+  batch_size: 16
+  num_workers: 2
+
+# --- Modelo ---
+model:
+  name: convnext_tiny
+  num_classes: 2
+  pretrained: true
+  checkpoint_dir: models/saved_models
+  checkpoint_name: epoch_5.pth
+
+# --- Entrenamiento ---
+training:
+  epochs: 5
+  learning_rate: 1e-4
+  optimizer: adam
+  loss_function: cross_entropy
+  device: cuda  # usa 'cpu' si no tienes GPU
+  save_each_epoch: true
+
+# --- Evaluación ---
+evaluation:
+  metrics_dir: results/metrics
+  figures_dir: results/figures
+  predictions_dir: results/predictions
+
+# --- GradCAM ---
+gradcam:
+  output_dir: results/gradcam
+  layer_name: model.stages.3.blocks.2  # capa objetivo para visualización
+
+# --- Inferencia ---
+inference:
+  default_image: data/samples/example.jpg
