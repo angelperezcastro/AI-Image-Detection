@@ -1,47 +1,27 @@
-# ================================
-# IA Image Detection - .gitignore
-# ================================
+# Ignorar todo el contenido dentro de data/raw excepto las carpetas vacías
+data/raw/**/*
+!data/raw/**/.gitkeep
 
-# ---- General ----
+# Ignorar todo el contenido dentro de data/processed excepto .gitkeep
+data/processed/**/*
+!data/processed/**/.gitkeep
+
+# Ignorar todo el contenido dentro de samples excepto .gitkeep
+samples/**/*
+!samples/**/.gitkeep
+
+# Ignorar archivos pesados o generados automáticamente
+models/checkpoints/*
+models/saved_models/*
+results/figures/*
+results/metrics/*
+
+# Archivos de sistema y caché
 __pycache__/
 *.pyc
 *.pyo
-*.tmp
-*.log
-.DS_Store
+*.DS_Store
 
-# ---- Entornos y librerías ----
-.venv/
-env/
+# Carpeta de entorno virtual (si la tienes)
 venv/
-*.egg-info/
-
-# ---- Datos ----
-# Ignorar todo el contenido de data/raw excepto .gitkeep
-data/raw/**/*
-
-# Mantener estructura vacía
-!data/raw/**/.gitkeep
-
-# Ignorar contenido de processed, samples
-data/processed/**
-!data/processed/**/.gitkeep
-
-data/samples/**
-!data/samples/**/.gitkeep
-
-# ---- Modelos ----
-models/checkpoints/**
-!models/checkpoints/**/.gitkeep
-
-models/saved_models/**
-!models/saved_models/**/.gitkeep
-
-# ---- Resultados ----
-results/**
-!results/**/.gitkeep
-
-# ---- Colab / Temp ----
-*.ipynb_checkpoints/
-tmp/
-output/
+.env/
