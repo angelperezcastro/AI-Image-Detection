@@ -1,27 +1,78 @@
-# Ignorar todo el contenido dentro de data/raw excepto las carpetas vacías
-data/raw/**/*
-!data/raw/**/.gitkeep
+########################################
+# IA Image Detection - Final .gitignore
+########################################
 
-# Ignorar todo el contenido dentro de data/processed excepto .gitkeep
-data/processed/**/*
-!data/processed/**/.gitkeep
-
-# Ignorar todo el contenido dentro de samples excepto .gitkeep
-samples/**/*
-!samples/**/.gitkeep
-
-# Ignorar archivos pesados o generados automáticamente
-models/checkpoints/*
-models/saved_models/*
-results/figures/*
-results/metrics/*
-
-# Archivos de sistema y caché
+#############
+# Python env #
+#############
+venv/
+.env/
+.env*/
+*.egg-info/
 __pycache__/
 *.pyc
 *.pyo
-*.DS_Store
+*.pyd
 
-# Carpeta de entorno virtual (si la tienes)
-venv/
-.env/
+#################
+# System files  #
+#################
+.DS_Store
+Thumbs.db
+
+#############################
+# DATASETS (NO SE SUBEN)    #
+#############################
+
+# Ignorar TODO dentro de data/raw
+data/raw/**/*
+# Excepto carpetas vacías (estructura)
+!data/raw/**/.gitkeep
+
+# Ignorar TODO en data/samples (también es dataset)
+data/samples/**/*
+# Excepto carpetas vacías
+!data/samples/**/.gitkeep
+
+# Ignorar TODO en data/processed
+data/processed/**/*
+!data/processed/**/.gitkeep
+
+#############################
+# MODELS & RESULTS (pesados)
+#############################
+
+# Checkpoints pesados
+models/checkpoints/**
+!models/checkpoints/**/.gitkeep
+
+# Modelos finales (.pth)
+models/saved_models/**
+!models/saved_models/**/.gitkeep
+
+# Resultados de entrenamiento y métricas
+results/figures/**
+!results/figures/**/.gitkeep
+
+results/metrics/**
+!results/metrics/**/.gitkeep
+
+results/gradcam/**
+!results/gradcam/**/.gitkeep
+
+#############################
+# Jupyter Notebooks
+#############################
+
+# Cachés y backups de Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+
+# Notebooks convertidos temporalmente
+*.nbconvert.ipynb
+
+#############################
+# Logs temporales
+#############################
+logs/
+*.log
