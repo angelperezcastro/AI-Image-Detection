@@ -185,8 +185,12 @@ The script also prints:
 
 - Path to the Grad-CAM output
 
+**AI-Generated Image Heatmap**
 ![gradcam_infer example](./assets/screenshot3.png)
-![original image](./assets/ADM_19_adm_63.PNG)  ![heatmap](./results/gradcams/ADM_19_adm_63_gradcam.jpg)
+![original generated image](./assets/ADM_19_adm_63.PNG)  ![generated heatmap](./results/gradcams/ADM_19_adm_63_gradcam.jpg)
+
+**Real Image Heatmap**
+![gradcam_infer real example](./assets/ADM_n01641577_12931.JPEG) ![real heatmap](./assets/ADM_n01641577_12931_gradcam.jpg)
 ## 7. Dataset Tools
 ##### 7.1. Create Balanced Sample Dataset
 
