@@ -95,7 +95,7 @@ models/saved_models/epoch_{N}.pth
 
 
 
-![Training loss curve](./results/figures/loss_curve.png) ![Training loss curve](./results/figures/val_accuracy_curve.png)
+![training loss curve](./assets/loss_curve.png) ![val accuracy curve](./assets/val_accuracy_curve.png)
 
 
 ## 4. Evaluation on Validation Set
@@ -115,7 +115,7 @@ The script outputs:
 - Confusion matrix
 
 
-![evaluation example](./assets/screenshot1.png) ![confusion matrix](./results/figures/confusion_matrix.png)
+![evaluation example](./assets/screenshot1.png) ![confusion matrix](./assets/confusion_matrix.png)
 
 ## 5. Standard Inference (Single Image)
 
@@ -186,7 +186,7 @@ The script also prints:
 - Path to the Grad-CAM output
 
 ![gradcam_infer example](./assets/screenshot3.png)
-![original image](./data/samples/ALL/train/ai/ADM_19_adm_63.png)  ![heatmap](./results/gradcams/ADM_19_adm_63_gradcam.jpg)
+![original image](./assets/ADM_19_adm_63.PNG)  ![heatmap](./results/gradcams/ADM_19_adm_63_gradcam.jpg)
 ## 7. Dataset Tools
 ##### 7.1. Create Balanced Sample Dataset
 
