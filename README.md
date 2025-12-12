@@ -32,7 +32,7 @@ The two classes are:
 - nature → real images
 
 <!-- IMAGE: Diagram of ConvNeXt-Tiny with replaced 2-class head -->
-![ConvNext-Tiny Diagram with replaced 2-class head](.\assets\auxImage1.png) 
+![ConvNext-Tiny Diagram with replaced 2-class head](./assets/auxImage1.png) 
 ## 2. Dataset Format
 
 All training and validation loaders expect the following structure (ImageFolder-compatible):
@@ -95,7 +95,7 @@ models/saved_models/epoch_{N}.pth
 
 
 
-![Training loss curve](.\results\figures\loss_curve.png) ![Training loss curve](.\results\figures\val_accuracy_curve.png)
+![Training loss curve](./results/figures/loss_curve.png) ![Training loss curve](./results/figures/val_accuracy_curve.png)
 
 
 ## 4. Evaluation on Validation Set
@@ -115,7 +115,7 @@ The script outputs:
 - Confusion matrix
 
 
-![evaluation example](.\assets\screenshot1.png) ![confusion matrix](.\results\figures\confusion_matrix.png)
+![evaluation example](./assets/screenshot1.png) ![confusion matrix](./results/figures/confusion_matrix.png)
 
 ## 5. Standard Inference (Single Image)
 
@@ -151,7 +151,7 @@ Classes used internally:
 🔍 Predicción: Real
 📊 Confianza: 97.32%
 
-![infer example](.\assets\screenshot2.png)
+![infer example](./assets/screenshot2.png)
 ## 6. Grad-CAM Explainability
 
 Grad-CAM inference script: src/gradcam_infer.py
@@ -185,8 +185,8 @@ The script also prints:
 
 - Path to the Grad-CAM output
 
-![gradcam_infer example](.\assets\screenshot3.png)
-![original image](.\data\samples\ALL\train\ai\ADM_19_adm_63.png)  ![heatmap](.\results\gradcams\ADM_19_adm_63_gradcam.jpg)
+![gradcam_infer example](./assets/screenshot3.png)
+![original image](./data/samples/ALL/train/ai/ADM_19_adm_63.png)  ![heatmap](./results/gradcams/ADM_19_adm_63_gradcam.jpg)
 ## 7. Dataset Tools
 ##### 7.1. Create Balanced Sample Dataset
 
