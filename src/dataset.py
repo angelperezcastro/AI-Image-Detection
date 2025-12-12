@@ -61,8 +61,8 @@ def load_dataloaders(
     Soporta dos modos:
 
     1) base_dir = carpeta que contiene directamente:
-         base_dir/train/{ai,nature}
-         base_dir/val/{ai,nature}
+          base_dir/train/{ai,nature}
+          base_dir/val/{ai,nature}
 
     2) base_dir = carpeta contenedora (p.ej. data/raw) con varias subcarpetas
        que sí tienen esa estructura (tus 3 generadores). En ese caso,
@@ -121,17 +121,30 @@ def load_dataloaders(
     print("Clases detectadas:", class_names)
     print(f"Nº de datasets combinados: {len(train_datasets)}")
 
+    # -----------------------------------------------------------------------
+    # BLOQUE OPTIMIZADO: DataLoaders con pin_memory y persistent_workers
+    # -----------------------------------------------------------------------
+    
+    # Aseguramos que persistent_workers solo sea True si hay workers
+    use_persistent = (num_workers > 0)
+
     train_loader = DataLoader(
         train_dataset,
         batch_size=batch_size,
         shuffle=True,
         num_workers=num_workers,
+        pin_memory=True,          # Acelera transferencia a GPU
+        persistent_workers=use_persistent, # Mantiene procesos vivos
     )
+    
     val_loader = DataLoader(
         val_dataset,
         batch_size=batch_size,
         shuffle=False,
-        num_workers=num_workers,
+        # En validación usamos menos workers para liberar CPU, mínimo 2
+        num_workers=max(2, num_workers // 2), 
+        pin_memory=True,
+        persistent_workers=use_persistent,
     )
 
     return train_loader, val_loader, class_names
