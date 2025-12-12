@@ -1,5 +1,4 @@
 # IA Image Generated Detection 
-<!-- IMAGE: Project overview illustration (pipeline from dataset → training → inference → Grad-CAM) -->
 
 This project provides a **full pipeline** for detecting whether an image is AI-generated or real, using a **ConvNeXt-Tiny model** trained on a custom dataset of image generators.
 It includes:
@@ -33,6 +32,7 @@ The two classes are:
 - nature → real images
 
 <!-- IMAGE: Diagram of ConvNeXt-Tiny with replaced 2-class head -->
+![ConvNext-Tiny Diagram with replaced 2-class head](.\assets\auxImage1.png) 
 ## 2. Dataset Format
 
 All training and validation loaders expect the following structure (ImageFolder-compatible):
@@ -54,7 +54,6 @@ The data loader automatically applies augmentation for training and normalizatio
 
 - Val transforms: resize, normalization
 
-<!-- IMAGE: Example of dataset folder structure and sample images from ai/nature -->
 ## 3. Training
 
 Training script: src/train.py
@@ -96,23 +95,9 @@ models/saved_models/epoch_{N}.pth
 
 
 
+![Training loss curve](.\results\figures\loss_curve.png) ![Training loss curve](.\results\figures\val_accuracy_curve.png)
 
-<!-- IMAGE: Plot of training loss and validation loss over epochs --> <!-- IMAGE: Plot of validation accuracy over epochs -->
-##### 3.4. Checkpoints
 
-Each checkpoint includes:
-
-- Model weights
-
-- Optimizer state
-
-- Epoch number
-
-Loaded with:
-```
-load_checkpoint(model, optimizer, path=..., device=...)
-```
-<!-- IMAGE: Table or screenshot listing saved checkpoints in models/saved_models/ -->
 ## 4. Evaluation on Validation Set
 
 Evaluation script: `src/evaluate.py`
@@ -130,7 +115,8 @@ The script outputs:
 - Confusion matrix
 
 
-<!-- IMAGE: Screenshot of classification report in terminal --> <!-- IMAGE: Confusion matrix as a heatmap (ai vs nature) -->
+![evaluation example](.\assets\screenshot1.png) ![confusion matrix](.\results\figures\confusion_matrix.png)
+
 ## 5. Standard Inference (Single Image)
 
 Inference script: src/infer.py
@@ -165,7 +151,7 @@ Classes used internally:
 🔍 Predicción: Real
 📊 Confianza: 97.32%
 
-<!-- IMAGE: Side-by-side of an image and a small box showing "Predicted: Real / AI-generated" with confidence -->
+![infer example](.\assets\screenshot2.png)
 ## 6. Grad-CAM Explainability
 
 Grad-CAM inference script: src/gradcam_infer.py
@@ -199,7 +185,8 @@ The script also prints:
 
 - Path to the Grad-CAM output
 
-<!-- IMAGE: Example of original image vs Grad-CAM overlay (two images side by side) --> <!-- IMAGE: Grid of several Grad-CAM examples for different images and classes -->
+![gradcam_infer example](.\assets\screenshot3.png)
+![original image](.\data\samples\ALL\train\ai\ADM_19_adm_63.png)  ![heatmap](.\results\gradcams\ADM_19_adm_63_gradcam.jpg)
 ## 7. Dataset Tools
 ##### 7.1. Create Balanced Sample Dataset
 
@@ -232,7 +219,6 @@ Structure:
         ├── ai/
         └── nature/
 ```
-<!-- IMAGE: Screenshot of folder tree for data/samples/ALL -->
 ##### 7.2. Create Combined Full Dataset
 
 Script: scripts/create_full_all.py
@@ -260,25 +246,6 @@ Structure:
 ```
 
 Each copied file is prefixed with the generator name (e.g. ADM_, BigGAN_) to avoid name collisions.
-
-<!-- IMAGE: Screenshot or schematic showing multiple generator folders merging into ALL_full -->
-##### 7.3. Dataset Inspection Utility
-
-Script: scripts/test_dataset.py
-
-This script:
-
-- Verifies the existence of required folders
-
-- Counts images per class and split
-
-- Prints a few example paths
-
-Run:
-```
-python scripts/test_dataset.py
-```
-<!-- IMAGE: Screenshot of terminal showing counts for train/ai, train/nature, val/ai, val/nature -->
 
 ## 8. Requirements
 
@@ -315,4 +282,3 @@ This project provides a complete AI-image detection framework with:
 
 - Support for local and Google Colab training
 
-<!-- IMAGE: Final collage of examples – real vs AI predictions + Grad-CAM overlays -->
