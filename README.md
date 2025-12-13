@@ -290,3 +290,5 @@ This project provides a complete AI-image detection framework with:
 
 - Support for local and Google Colab training
 
+## ▶️10. Presentation
+Click on the following link to access the project presentation: https://www.canva.com/design/DAG7UkxaUBE/B9KmxvQsAEyCKbEoh4E3Tw/view?utm_content=DAG7UkxaUBE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h5d492e5d23
